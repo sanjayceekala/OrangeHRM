@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="classes">
+  <test thread-count="5" name="Test(failed)" parallel="classes">
+    <classes>
+      <class name="tests.sanity.Sanity_002_Add_Admin_User">
+        <methods>
+          <include name="Sanity_002_Add_Admin_User_Test"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- tests.sanity.Sanity_002_Add_Admin_User -->
+      <class name="tests.sanity.Sanity_001_Add_Admin_User">
+        <methods>
+          <include name="Sanity_001_Add_Admin_User_Test"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- tests.sanity.Sanity_001_Add_Admin_User -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+	<Properties>
+		<Property name="basePath">./logs</Property>
+	</Properties>
+
+	<Appenders>
+		<RollingFile name="File"
+			fileName="${basePath}/LogFile1.log"
+			filePattern="${basePath}/app-%d{yyyy-MM-dd}.log">
+			<PatternLayout
+				pattern="%d{HH:mm:SSS} %-5level %c{1} -%msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+
+		<Console name="Console">
+			<PatternLayout
+				pattern="%d{HH:mm:SSS} %-5level %c{1} -%msg%n" />
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Root level="trace">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File" />
+		</Root>
+	</Loggers>
+</Configuration>
