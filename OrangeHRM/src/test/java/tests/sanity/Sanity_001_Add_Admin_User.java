@@ -1,7 +1,6 @@
 package tests.sanity;
 
 import org.testng.annotations.Test;
-
 import common.CommonPage;
 import common.TopPanel;
 import common.TopPanel.Menu;
