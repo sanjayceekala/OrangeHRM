@@ -78,7 +78,7 @@ public class TopPanel extends SeleniumTest{
 	 */
 
 	public void selectMenu(Menu menuOption) {
-		WaitUtils.waitForElementVisible(LOC_WL_MENU_LIST, 3);
+		WaitUtils.waitForElementVisible(LOC_WL_MENU_LIST, menuOption.getText(), 3);
 		List<WebElement> menuList = driver.findElements(LOC_WL_MENU_LIST);
 		for(WebElement menu : menuList) {
 			if(menu.getText().equals(menuOption.getText())) {
@@ -94,7 +94,7 @@ public class TopPanel extends SeleniumTest{
 	 */
 
 	public void selectSubMenu(subMenu subMenu, subMenuOption subMenuOption) {
-		WaitUtils.waitForElementVisible(LOC_WL_SUBMENU_LIST, 3);
+		WaitUtils.waitForElementVisible(LOC_WL_SUBMENU_LIST, subMenuOption.getText(), 3);
 		List<WebElement> menuList = driver.findElements(LOC_WL_SUBMENU_LIST);
 		for(WebElement menu : menuList) {
 			if(menu.getText().equals(subMenu.getText())) {
@@ -110,7 +110,7 @@ public class TopPanel extends SeleniumTest{
 	 */
 
 	public void selectOptionSubMenu(subMenuOption subMenuOption) {
-		WaitUtils.waitForElementVisible(LOC_WL_SUBMENU_LIST, 3);
+		WaitUtils.waitForElementVisible(LOC_WL_SUBMENU_LIST, subMenuOption.getText(), 3);
 		List<WebElement> options = driver.findElements(LOC_WL_SUBMENU_LIST);
 		for(WebElement option : options) {
 			if(option.getText().equals(subMenuOption.getText())) {

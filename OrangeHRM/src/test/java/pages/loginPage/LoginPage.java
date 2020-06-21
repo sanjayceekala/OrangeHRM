@@ -3,7 +3,7 @@ package pages.loginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import common.Login;
+import common.CommonPage;
 import common.SeleniumTest;
 import utils.ClickUtils;
 import utils.FillUtils;
@@ -27,7 +27,7 @@ public class LoginPage extends SeleniumTest{
 		FillUtils.fillInputOrFail(LOC_IN_PASSWORD, password, "Password");
 	}
 
-	public void clickLogin() throws InterruptedException {
+	public void clickLogin() {
 		ClickUtils.clickButtonOrFail(LOC_BT_LOGIN_BUTTON, "Login");
 	}
 

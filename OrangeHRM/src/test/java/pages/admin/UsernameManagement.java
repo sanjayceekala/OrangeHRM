@@ -64,7 +64,7 @@ public class UsernameManagement {
 	 */
 	
 	public void fillDetailsAddUser(UserManagementConstants userRole, String empName, String uName, UserManagementConstants status, String password) {
-		WaitUtils.waitForElementPresent(LOC_IN_USER_NAME, 5);
+		WaitUtils.waitForElementPresent(LOC_IN_USER_NAME, "Username", 5);
 		FillUtils.fillSelectByVisibleText(LOC_DD_USER_ROLE, userRole.getText(), "User role");
 		FillUtils.fillInputOrFail(LOC_IN_EMPLOYEE_NAME, empName, "Employee name");
 		FillUtils.fillInputOrFail(LOC_IN_USER_NAME, uName, "Username");
@@ -79,7 +79,7 @@ public class UsernameManagement {
 	 */
 	
 	public void clickSaveAddUser() {
-		WaitUtils.waitForElementPresent(LOC_BT_SAVE_BUTTON, 5);
+		WaitUtils.waitForElementPresent(LOC_BT_SAVE_BUTTON, "Save button" , 5);
 		ClickUtils.clickButtonOrFail(LOC_BT_SAVE_BUTTON, "Save");
 	}
 

@@ -3,10 +3,6 @@ package utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.relevantcodes.extentreports.LogStatus;
-
-import Helpers.CustomReporter;
 import common.SeleniumTest;
 
 public class WaitUtils extends SeleniumTest{
@@ -18,19 +14,15 @@ public class WaitUtils extends SeleniumTest{
 	 * @return
 	 */
 
-	public static boolean waitForElementPresent(By locator, int timeOut) {
+	public static boolean waitForElementPresent(By locator, String elementName, int timeOut) {
 		
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeOut);
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.PASS, "Element is present", imageFolderPath);
+			ReportManager.reportPassed("Element " + elementName + " is present");
 			return true;
 		}catch (Exception e) {
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.FAIL, e.getMessage(), imageFolderPath);
+			ReportManager.reportFailed(e.getMessage());
 			return false;
 		}
 	}
@@ -42,19 +34,15 @@ public class WaitUtils extends SeleniumTest{
 	 * @return
 	 */
 
-	public static boolean waitForElementVisible(By locator, int timeOut) {
+	public static boolean waitForElementVisible(By locator, String elementName, int timeOut) {
 
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeOut);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.PASS, "Element is Visible", imageFolderPath);
+			ReportManager.reportPassed("Element " + elementName + " is Visible");
 			return true;
 		}catch (Exception e) {
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.FAIL, e.getMessage(), imageFolderPath);
+			ReportManager.reportFailed(e.getMessage());
 			return false;
 		}
 	}
@@ -66,17 +54,15 @@ public class WaitUtils extends SeleniumTest{
 	 * @return
 	 */
 
-	public static boolean waitForElementNotVisible(By locator, int timeOut) {
+	public static boolean waitForElementNotVisible(By locator, String elementName, int timeOut) {
 
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeOut);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.PASS, "Element is not Visible", imageFolderPath);
+			ReportManager.reportPassed("Element " + elementName + " is not Visible");
 			return true;
 		}catch (Exception e) {
-			test.log(LogStatus.FAIL, e.getMessage(), imageFolderPath);
+			ReportManager.reportFailed(e.getMessage());
 			return false;
 		}
 

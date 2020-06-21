@@ -2,7 +2,7 @@ package tests.sanity;
 
 import org.testng.annotations.Test;
 
-import common.Login;
+import common.CommonPage;
 import common.TopPanel;
 import common.TopPanel.Menu;
 import common.TopPanel.subMenu;
@@ -11,7 +11,7 @@ import pages.admin.UsernameManagement;
 import pages.admin.UsernameManagement.UserManagementConstants;
 import pages.loginPage.LoginPage;
 
-public class Sanity_002_Add_Admin_User extends Login{
+public class Sanity_002_Add_Admin_User extends CommonPage{
 	
 	@Test
 	public void Sanity_002_Add_Admin_User_Test() throws Exception{
@@ -24,8 +24,8 @@ public class Sanity_002_Add_Admin_User extends Login{
 		TopPanel topPanel = new TopPanel();
 		topPanel.selectMenuSubMenuOption(Menu.Admim, subMenu.UserManagement, subMenuOption.Users);
 		
-//		UsernameManagement user = new UsernameManagement();
-//		user.addUser(UserManagementConstants.UserRoleAdmin, "Sanjay Ceekala", "Sanjay2", UserManagementConstants.StatusEnabled, "sanjay@89");
+		UsernameManagement user = new UsernameManagement();
+		user.addUser(UserManagementConstants.UserRoleAdmin, "Sanjay Ceekala", "Sanjay2", UserManagementConstants.StatusEnabled, "sanjay@89");
 		
 	}
 	

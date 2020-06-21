@@ -1,14 +1,9 @@
 package utils;
 
 import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import com.relevantcodes.extentreports.LogStatus;
-
-import Helpers.CustomReporter;
 import common.SeleniumTest;
 
 public class FillUtils extends SeleniumTest{
@@ -24,14 +19,10 @@ public class FillUtils extends SeleniumTest{
 		WebElement element = driver.findElement(locator);
 		if(element != null && (element.isDisplayed() && element.isEnabled())) {
 			element.sendKeys(inputText);
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.PASS, "The text is entered in the " + fieldName + " field", imageFolderPath);
+			ReportManager.reportPassed("The text is entered in the " + fieldName + " field");
 		}
 		else {
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.FAIL, fieldName + " field is not present", imageFolderPath);
+			ReportManager.reportFailed("The text is entered in the " + fieldName + " field");
 		}
 
 	}
@@ -49,14 +40,10 @@ public class FillUtils extends SeleniumTest{
 		if(element != null && (element.isDisplayed() && element.isEnabled())) {
 			Select select = new Select(element);
 			select.selectByVisibleText(text);
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.PASS, "The option is not selected in the " + fieldName + " field", imageFolderPath);
+			ReportManager.reportPassed("The option is selected in the " + fieldName + " field");
 		}
 		else {
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.FAIL, fieldName + " field is not present", imageFolderPath);
+			ReportManager.reportFailed(fieldName + " field is not present");
 		}
 	}
 
@@ -72,12 +59,10 @@ public class FillUtils extends SeleniumTest{
 
 		if(element != null && (element.isDisplayed() && element.isEnabled())) {
 			select.selectByValue(text);
-			imagePath = takeScreenShot();
-			imageFolderPath = test.addScreenCapture(imagePath);
-			test.log(LogStatus.PASS,  "The option is not selected in the " + fieldName + " field", imageFolderPath);
+			ReportManager.reportPassed("The option is selected in the " + fieldName + " field");
 		}
 		else {
-			test.log(LogStatus.FAIL, fieldName + " field is not present", imageFolderPath);
+			ReportManager.reportFailed(fieldName + " field is not present");
 		}
 	}
 
@@ -93,10 +78,10 @@ public class FillUtils extends SeleniumTest{
 
 		if(element != null && (element.isDisplayed() && element.isEnabled())) {
 			select.selectByIndex(index);
-			test.log(LogStatus.PASS,  "The option is not selected in the " + fieldName + " field", imageFolderPath);
+			ReportManager.reportPassed("The option is selected in the " + fieldName + " field");
 		}
 		else {
-			test.log(LogStatus.FAIL, fieldName + " field is not present", imageFolderPath);
+			ReportManager.reportFailed(fieldName + " field is not present");
 		}
 	}
 
